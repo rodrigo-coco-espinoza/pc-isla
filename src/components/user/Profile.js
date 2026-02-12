@@ -54,7 +54,7 @@ function Profile({
         return (
             <Layout>
             <Helmet>
-                <title>AIET | Página de usuario</title>
+                <title>Página de usuario</title>
             </Helmet>
             
             <Navbar />

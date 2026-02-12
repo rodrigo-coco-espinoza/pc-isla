@@ -33,7 +33,7 @@ function PcIsla({
 
         <Layout>
             <Helmet>
-                <title>AIET | Administrador de PC Isla</title>
+                <title>Administrador de PC Isla</title>
             </Helmet>
 
             <Navbar />
