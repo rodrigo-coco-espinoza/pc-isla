@@ -14,22 +14,10 @@ function Navbar(){
         <nav data-scroll data-scroll-id="hey" id="navbar" className="bg-azul-marino-400 w-full py-4 top-0 transition duration-300 ease-in-out z-40 fixed shadow-md">
             <div className="px-4 sm:px-6">
                 <div className="-ml-4 -mt-2 hidden lg:flex flex-wrap items-center justify-between sm:flex-nowrap md:px-4 px-2">
-                    <Link to="/" className="mt-2">
+                    <Link to="/pc_isla" className="mt-2">
                         <img src={logo} width={140} alt="Logo SII"/>
                     </Link>
                     <div className="ml-4 mt-2 flex-shrink-0 flex items-end">
-                        <NavLink to="/convenios" className="text-gris-300 text-lg inline-flex font-medium leading-6 border-b-2 border-azul-marino-400 hover:border-b-2 hover:border-naranja-400 transition duration-300 ease-in-out mx-4">
-                            Convenios
-                        </NavLink>
-                        <NavLink to="/busqueda" className="text-gris-300 text-lg inline-flex font-medium leading-6 border-b-2 border-azul-marino-400 hover:border-b-2 hover:border-naranja-400 transition duration-300 ease-in-out mx-4">
-                            Buscar queries
-                        </NavLink>
-                        <NavLink to="/pc_isla" className="text-gris-300 text-lg inline-flex font-medium leading-6 border-b-2 border-azul-marino-400 hover:border-b-2 hover:border-naranja-400 transition duration-300 ease-in-out mx-4">
-                            PC Isla
-                        </NavLink>
-                        <NavLink to="/validador" className="text-gris-300 text-lg inline-flex font-medium leading-6 border-b-2 border-azul-marino-400 hover:border-b-2 hover:border-naranja-400 transition duration-300 ease-in-out mx-4">
-                            Validar archivos
-                        </NavLink>
                         <NavLink
                           to="/usuarios"
                           className="text-white hover:text-naranja-400 inline-flex"
