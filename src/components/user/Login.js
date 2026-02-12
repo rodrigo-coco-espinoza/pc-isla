@@ -89,6 +89,7 @@ function Login({
                                     type="password"
                                     onChange={e=>onChange(e)}
                                     required
+                                    autoComplete="off"
                                     className="relative block w-full appearance-none rounded-none rounded-b-md border border-gris-300 px-3 py-2 text-gris-900 placeholder-gris-600 focus:z-10 focus:border-naranja-300 focus:outline-none focus:ring-naranja-300 sm:text-sm"
                                     placeholder="Contraseña"
                                     />
