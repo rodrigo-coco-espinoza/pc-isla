@@ -42,6 +42,7 @@ const InformeAsistenciaMensual = forwardRef(({content}, ref) => {
                         fecha_termino={formatted_fecha_termino}
                         extendido={extendido}
                         pronto_a_terminar={pronto_a_terminar}
+                        porcentajeAsistencia={data_total.estadisticasTotal.porcentajeAsistenciaTotal}
                     />
                 </div>
             </div>

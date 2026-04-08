@@ -3,7 +3,8 @@ function Plazos ({
     fecha_inicio,
     fecha_termino,
     extendido,
-    pronto_a_terminar
+    pronto_a_terminar,
+    porcentajeAsistencia
 }) {
 
     return (
@@ -15,7 +16,7 @@ function Plazos ({
 
             }
             {pronto_a_terminar && estado !== 'finalizado' &&
-                <p className="text-rosa-400  font-bold">Proyecto próximo a terminar. {!extendido && <span>Recuerde que, en caso de ser necesario, debe solicitar con anticipación la extensión del plazo.</span>}</p>
+                <p className="text-rosa-400  font-bold">Proyecto próximo a terminar. {!extendido && porcentajeAsistencia >= 75 &&<span>Recuerde que, en caso de ser necesario, debe solicitar con anticipación la extensión del plazo.</span>}</p>
 
             }
         </div>
