@@ -1337,7 +1337,7 @@ class AddExtraccion(APIView):
                 fecha=data["fecha"],
                 gabinete=data["gabinete_electronico"],  # Ahora es CharField, no necesita conversión
                 informe_revision=data["informe_revision"],
-                documento_zip=data["documento_extraccion"],
+                extraccion_zip=data["documento_extraccion"],
                 estado="Entregado",
                 documento_word=data["documento_word"]
             )

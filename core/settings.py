@@ -4,7 +4,7 @@ import environ
 from datetime import timedelta
 
 env = environ.Env()
-environ.Env.read_env()
+environ.Env.read_env(Path(__file__).resolve().parent / '.env')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -70,6 +70,7 @@ CKEDITOR_UPLOAD_PATH = '/media/'
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -156,7 +157,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'build/static')
+    d for d in [os.path.join(BASE_DIR, 'build/static')] if os.path.exists(d)
 ]
 
 # Default primary key field type

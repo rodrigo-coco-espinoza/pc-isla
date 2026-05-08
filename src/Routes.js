@@ -17,9 +17,9 @@ function AnimatedRoutes(){
             {/* Error display */}
             <Route path="*" element={<Error404 />} />
             {/* Home lleva a PC Isla */}
-            <Route path="/" element={<Navigate to="/pc_isla" replace />} />
+            {/* <Route path="/" element={<Navigate to="/pc_isla" replace />} /> */}
             {/* PC Isla */}
-            <Route path="/pc_isla" element={<PcIsla />} />
+            <Route path="/" element={<PcIsla />} />
             {/* Login usuarios */}
             <Route path="/usuarios" element={<User />} />
 

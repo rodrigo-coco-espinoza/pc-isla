@@ -48,7 +48,7 @@ function Profile({
    
     const LogOut = () =>{
         logout()
-        window.location.href = '/'
+        window.location.href = '/pc-isla'
     }
  
         return (

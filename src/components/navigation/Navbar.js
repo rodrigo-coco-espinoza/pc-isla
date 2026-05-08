@@ -14,7 +14,7 @@ function Navbar(){
         <nav data-scroll data-scroll-id="hey" id="navbar" className="bg-azul-marino-400 w-full py-4 top-0 transition duration-300 ease-in-out z-40 fixed shadow-md">
             <div className="px-4 sm:px-6">
                 <div className="-ml-4 -mt-2 hidden lg:flex flex-wrap items-center justify-between sm:flex-nowrap md:px-4 px-2">
-                    <Link to="/pc_isla" className="mt-2">
+                    <Link to="/" className="mt-2">
                         <img src={logo} width={140} alt="Logo SII"/>
                     </Link>
                     <div className="ml-4 mt-2 flex-shrink-0 flex items-end">

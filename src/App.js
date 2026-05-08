@@ -12,7 +12,7 @@ function App() {
         <title>AIET | Portal de procesamiento de la información</title>
       </Helmet>
       <Provider store={store}>
-        <Router>
+        <Router basename="/pc-isla">
           <AnimatedRoutes />         
         </Router>
       </Provider>

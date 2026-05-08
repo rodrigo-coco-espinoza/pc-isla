@@ -44,11 +44,12 @@ export const login = (username, password) => async dispatch => {
                 payload: res.data
             })
 
-            dispatch(load_user())
+            await dispatch(load_user())
 
             dispatch({
                 type: REMOVE_AUTH_LOADING
             })
+            return true
         } else{
             dispatch({
                 type: LOGIN_FAIL
@@ -56,6 +57,7 @@ export const login = (username, password) => async dispatch => {
             dispatch({
                 type: REMOVE_AUTH_LOADING
             })
+            return false
         }
 
     } catch(err){

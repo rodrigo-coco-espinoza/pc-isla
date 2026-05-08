@@ -7,12 +7,14 @@ import { motion } from 'framer-motion'
 import { connect } from "react-redux"
 import { MusicalNoteIcon } from '@heroicons/react/20/solid'
 import { login } from "redux/actions/auth/auth"
+import { useNavigate } from "react-router-dom"
 
 
 function Login({
     login,
     isAuthenticated,
-    loading
+    loading,
+    user
 }){
     const [formData, setFormData] = useState({
         username: "",
@@ -23,6 +25,8 @@ function Login({
         username,
         password
     } = formData
+
+    const navigate = useNavigate()
 
     const [isPasswordInvalid, setIsPasswordInvalid] = useState(false);
 
@@ -36,6 +40,12 @@ function Login({
             }
         })
     }
+
+    useEffect(() => {
+        if (user && (user.is_pc_isla_editor || user.is_pc_isla_admin)) {
+            navigate('/')
+        }
+    }, [user])
 
     useEffect(() => {
         window.scrollTo(0,0)
@@ -142,7 +152,8 @@ function Login({
 
 const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated,
-    loading: state.auth.loading
+    loading: state.auth.loading,
+    user: state.auth.user
 })
 export default connect (mapStateToProps, {
     login

@@ -5,9 +5,17 @@ from django.db import migrations
 
 def rename_column(apps, schema_editor):
     """
-    Rename documento_zip column to extraccion_zip in pc_isla_extraccion table
+    Rename documento_zip column to extraccion_zip in pc_isla_extraccion table.
+    Skipped if documento_zip does not exist (column was already created correctly).
     """
     with schema_editor.connection.cursor() as cursor:
+        cursor.execute("PRAGMA table_info(pc_isla_extraccion)")
+        columns = [row[1] for row in cursor.fetchall()]
+
+        if 'documento_zip' not in columns:
+            # Column already has the correct name, nothing to do
+            return
+
         # Create a new table with the correct column name
         cursor.execute("""
             CREATE TABLE pc_isla_extraccion_new (
@@ -23,18 +31,18 @@ def rename_column(apps, schema_editor):
                 FOREIGN KEY (proyecto_id) REFERENCES pc_isla_proyecto (id)
             )
         """)
-        
+
         # Copy data from old table to new table
         cursor.execute("""
-            INSERT INTO pc_isla_extraccion_new 
+            INSERT INTO pc_isla_extraccion_new
             (id, numero, fecha, estado, gabinete, informe_revision, extraccion_zip, proyecto_id, documento_word)
             SELECT id, numero, fecha, estado, gabinete, informe_revision, documento_zip, proyecto_id, documento_word
             FROM pc_isla_extraccion
         """)
-        
+
         # Drop old table
         cursor.execute("DROP TABLE pc_isla_extraccion")
-        
+
         # Rename new table to original name
         cursor.execute("ALTER TABLE pc_isla_extraccion_new RENAME TO pc_isla_extraccion")
 

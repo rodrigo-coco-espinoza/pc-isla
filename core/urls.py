@@ -2,11 +2,15 @@
 from django.contrib import admin
 from django.urls import path, re_path, include
 from django.views.generic import TemplateView
+from django.views.static import serve # esto porque no hay build
 from django.conf.urls.static import static
 from django.conf import settings
+import os
 
 
 urlpatterns = [
+    path('favicon.ico', serve, {'path': 'favicon.ico', 'document_root': os.path.join(settings.BASE_DIR, 'public')}),
+
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
     path('auth/', include('apps.user.urls')),
