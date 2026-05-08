@@ -17,6 +17,7 @@ python manage.py migrate --noinput
 python manage.py collectstatic --noinput
 
 :: Build del frontend React
+call npm install
 call npm run build
 
 :: Levantar Django con Waitress
