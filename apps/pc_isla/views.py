@@ -1089,7 +1089,7 @@ class ExtenderProyecto(APIView):
 
         # Actualizar parámetros proyecto
         proyecto_instance.extendido = True
-        proyecto_instance.fecha_extension = data["fechaDocumento"]
+        proyecto_instance.fecha_extension = datetime.strptime(data["fechaDocumento"], "%Y-%m-%d").date()
         proyecto_instance.documento_extension = data["documento"]
 
         fecha_termino_original = proyecto_instance.fecha_termino
